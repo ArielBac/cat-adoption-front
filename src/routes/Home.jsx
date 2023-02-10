@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import catAdoptionFetch from '../axios/config'
 
 const Home = () => {
-    // Resgata dados de gatos e armazena em uma constante
     const [cats, setCats] = useState([])
     const getCats = async () => {
         try {
@@ -15,14 +14,12 @@ const Home = () => {
         }
     }
 
-    // Cadastro de um novo gato
     const [name, setName] = useState("")
     const [age, setAge] = useState(0)
     const [weight, setWeight] = useState(0)
     const [breed, setBreed] = useState("")
     const [gender, setGender] = useState("")
     const [color, setColor] = useState("")
-
     const createCat = async (e) => {
         const cat = { name, age, weight, breed, gender, color }
         const catJson = JSON.stringify(cat)
@@ -30,7 +27,6 @@ const Home = () => {
         await catAdoptionFetch.post("/cat", catJson)
     }
 
-    // Edição de um gato
     const [id, setId] = useState(0)
     const editCat = (e, id) => {      
         const cat = cats.find(cat => cat.id == id)

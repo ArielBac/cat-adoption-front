@@ -6,7 +6,6 @@ import './index.css'
 
 // Páginas
 import Home from "./routes/Home"
-import NewCat from "./routes/NewCat"
 
 const router = createBrowserRouter([
   {
@@ -15,10 +14,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />
-      },
-      {
-        path: "new",
-        element: <NewCat />
       }
     ]
   }

@@ -27,12 +27,12 @@ const Home = () => {
         const cat = { name, age, weight, breed, gender, color }
         const catJson = JSON.stringify(cat)
 
-        await catAdoptionFetch.post("/cat", cat)
+        await catAdoptionFetch.post("/cat", catJson)
     }
 
     // Edição de um gato
     const [id, setId] = useState(0)
-    const editCat = (e, id) => {
+    const editCat = (e, id) => {      
         const cat = cats.find(cat => cat.id == id)
 
         setId(cat.id)

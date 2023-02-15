@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import catAdoptionFetch from '../axios/config'
 
-const Home = () => {
+const Cat = () => {
     const [cats, setCats] = useState([])
     const getCats = async () => {
         try {
@@ -201,4 +201,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Cat

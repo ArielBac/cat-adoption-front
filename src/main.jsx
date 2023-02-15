@@ -5,7 +5,8 @@ import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom'
 import './index.css'
 
 // Páginas
-import Home from "./routes/Home"
+import Cat from "./routes/Cat"
+import Vaccine from "./routes/Vaccine"
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />
+        element: <Cat />
+      },
+      {
+        path: "/vaccines",
+        element: <Vaccine />
       }
     ]
   }

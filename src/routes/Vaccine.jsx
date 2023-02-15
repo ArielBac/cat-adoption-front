@@ -75,7 +75,7 @@ const Vaccine = () => {
                     <table className="table">
                         <thead>
                             <tr>
-                                <th scope="col">Vacina (Kg)</th>
+                                <th scope="col">Vacina</th>
                                 <th scope="col">Fabricante</th>
                                 <th scope="col">Data da aplicação</th>
                                 <th scope="col">Gatinho</th>

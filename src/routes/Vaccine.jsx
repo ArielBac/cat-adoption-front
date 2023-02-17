@@ -155,7 +155,7 @@ const Vaccine = () => {
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="applied_atInput" className="form-label">Data da Aplicação</label>
-                                    <input onChange={(e) => setAppliedAt(e.target.value)} type="datetime" className="form-control" id="applied_atInput" placeholder="0000-00-00T00:00:00" />
+                                    <input onChange={(e) => setAppliedAt(e.target.value)} type="datetime" className="form-control" id="applied_atInput" placeholder="YYYY-MM-DDThh:mm:ss" />
                                 </div>
                             </form>
                         </div>
@@ -167,7 +167,7 @@ const Vaccine = () => {
                 </div>
             </div>
 
-            {/* Modal de edição de gato */}
+            {/* Modal de edição de vacina */}
             <div className="modal fade" id="editVaccineModal" tabIndex={-1}>
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">

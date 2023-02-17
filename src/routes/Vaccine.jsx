@@ -29,8 +29,8 @@ const Vaccine = () => {
     }
 
     const [id, setId] = useState(0)
-    const editVaccine = (e, id) => {   
-         
+    const editVaccine = (e, id) => {
+
         const vaccine = vaccines.find(vaccine => vaccine.id == id)
 
         setId(vaccine.id)
@@ -39,7 +39,7 @@ const Vaccine = () => {
         setProducer(vaccine.producer)
     }
 
-    const updateVaccine = async (e) => {  
+    const updateVaccine = async (e) => {
         const vaccine = { name, applied_at, producer }
         const vaccineJson = JSON.stringify(vaccine)
 
@@ -56,7 +56,20 @@ const Vaccine = () => {
         window.location.reload()
     }
 
+    const [cats, setCats] = useState([])
+    const getCats = async () => {
+        try {
+            const response = await catAdoptionFetch.get("/cat")
+            const data = response.data
+
+            setCats(data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
+        getCats()
         getVaccines()
     }, [])
 
@@ -109,7 +122,7 @@ const Vaccine = () => {
                 </div>
             </div>
 
-            {/* Modal de cadastro de gato */}
+            {/* Modal de cadastro de vacina */}
             <div className="modal fade" id="addNewVaccineModal" tabIndex={-1}>
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
@@ -120,8 +133,17 @@ const Vaccine = () => {
                         <div className="modal-body">
                             <form id="newVaccineForm" onSubmit={(e) => createVaccine(e)}>
                                 <div className="mb-3">
-                                    <label htmlFor="catIdIpunt" className="form-label">ID do Gatinho</label>
-                                    <input onChange={(e) => setCatId(e.target.value)} type="number" className="form-control" id="nameInput" aria-describedby="nameHelp" />
+                                    <label htmlFor="catNameSelect" className="form-label">Gatinho</label>
+                                    <select id="catSelect" className="form-select" aria-label="Default select example" onChange={(e) => setCatId(e.target.value)}>
+                                        <option default>Selecione um gatinho</option>
+                                        {
+                                            cats.map((cat) => {
+                                                return (<option key={cat.id} value={cat.id}>{cat.name}</option>)
+                                            })
+                                        }
+                                       
+                                    </select>
+                                    {catId}
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="nameInput" className="form-label">Nome da Vacina</label>
@@ -133,7 +155,7 @@ const Vaccine = () => {
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="applied_atInput" className="form-label">Data da Aplicação</label>
-                                    <input onChange={(e) => setAppliedAt(e.target.value)} type="datetime" className="form-control" id="applied_atInput" placeholder="0000-00-00T00:00:00"/>
+                                    <input onChange={(e) => setAppliedAt(e.target.value)} type="datetime" className="form-control" id="applied_atInput" placeholder="0000-00-00T00:00:00" />
                                 </div>
                             </form>
                         </div>

@@ -143,7 +143,6 @@ const Vaccine = () => {
                                         }
                                        
                                     </select>
-                                    {catId}
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="nameInput" className="form-label">Nome da Vacina</label>

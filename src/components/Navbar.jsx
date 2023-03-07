@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light mb-5 p-3">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light p-3">
             <img className="me-2" height="35px" src="/logo.png" alt="" />
             <Link className="navbar-brand" to={`/`}>Cat Adoption</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

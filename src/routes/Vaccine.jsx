@@ -112,7 +112,9 @@ const Vaccine = () => {
                                                 onClick={(e) => editVaccine(e, vaccine.id)}>
                                                 Editar
                                             </button>
-                                            <button className="btn btn-danger" onClick={(e) => deleteVaccine(e, vaccine.id)}>Remover</button>
+                                            <button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmationVaccineModal" onClick={(e) => setId(vaccine.id)}>
+                                                Remover
+                                            </button>
                                         </td>
                                     </tr>
                                 ))
@@ -193,6 +195,25 @@ const Vaccine = () => {
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                             <button form="editVaccineForm" className="btn btn-primary">Atualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             {/* Modal de confirmação de remoção de vacina */}
+             <div className="modal fade" id="deleteConfirmationVaccineModal" tabindex="-1">
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title">Deseja excluir esta vacina?</h5>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                            <p>Tem certeza que deseja excluir esta vacina? Esta ação é irreversível!</p>
+                        </div>
+                        <div className="modal-footer">
+                            <button className="btn btn-danger" onClick={(e) => deleteVaccine(e, id)}>Confirmar</button>
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                         </div>
                     </div>
                 </div>
